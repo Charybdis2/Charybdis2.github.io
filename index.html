@@ -1,1 +1,97 @@
-Hellowowlrd
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokémon Card Gallery</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        nav {
+            background-color: #333;
+            color: white;
+            padding: 1rem;
+        }
+        nav input {
+            padding: 0.5rem;
+            margin-left: 1rem;
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            padding: 1rem;
+        }
+        .card {
+            width: 200px;
+            transition: transform 0.2s;
+        }
+        .card:hover {
+            transform: scale(1.1);
+        }
+        .card img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .card-info {
+            text-align: center;
+            margin-top: 0.5rem;
+        }
+    </style>
+    <script>
+        function filterCards() {
+            const filter = document.getElementById('filter').value.toLowerCase();
+            const cards = document.getElementsByClassName('card');
+
+            for (let card of cards) {
+                const language = card.getAttribute('data-language').toLowerCase();
+                if (language.includes(filter) || filter === '') {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <nav>
+        <label for="filter">Filter by Language:</label>
+        <input type="text" id="filter" oninput="filterCards()" placeholder="e.g. English, Russian">
+    </nav>
+    <div class="gallery">
+        <div class="card" data-language="English">
+            <img src="card1.jpg" alt="Pokémon Card 1">
+            <div class="card-info">
+                <p>Set: Silver Tempest</p>
+                <p>Card Number: 120/195</p>
+                <p>Variant: Reverse Holo</p>
+                <p>Language: English</p>
+            </div>
+        </div>
+        <div class="card" data-language="Russian">
+            <img src="card2.jpg" alt="Pokémon Card 2">
+            <div class="card-info">
+                <p>Set: Brilliant Stars</p>
+                <p>Card Number: 45/172</p>
+                <p>Variant: Holo</p>
+                <p>Language: Russian</p>
+            </div>
+        </div>
+        <div class="card" data-language="Japanese">
+            <img src="card3.jpg" alt="Pokémon Card 3">
+            <div class="card-info">
+                <p>Set: Shiny Star V</p>
+                <p>Card Number: 308/330</p>
+                <p>Variant: Shiny</p>
+                <p>Language: Japanese</p>
+            </div>
+        </div>
+        <!-- Add more cards as needed -->
+    </div>
+</body>
+</html>
