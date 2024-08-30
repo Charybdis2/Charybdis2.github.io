@@ -3,95 +3,278 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pokémon Card Gallery</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        nav {
-            background-color: #333;
-            color: white;
-            padding: 1rem;
-        }
-        nav input {
-            padding: 0.5rem;
-            margin-left: 1rem;
-        }
-        .gallery {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            padding: 1rem;
-        }
-        .card {
-            width: 200px;
-            transition: transform 0.2s;
-        }
-        .card:hover {
-            transform: scale(1.1);
-        }
-        .card img {
-            width: 100%;
-            border-radius: 10px;
-        }
-        .card-info {
-            text-align: center;
-            margin-top: 0.5rem;
-        }
-    </style>
-    <script>
-        function filterCards() {
-            const filter = document.getElementById('filter').value.toLowerCase();
-            const cards = document.getElementsByClassName('card');
-
-            for (let card of cards) {
-                const language = card.getAttribute('data-language').toLowerCase();
-                if (language.includes(filter) || filter === '') {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
-                }
-            }
-        }
-    </script>
+    <title>Card Collection</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <nav>
-        <label for="filter">Filter by Language:</label>
-        <input type="text" id="filter" oninput="filterCards()" placeholder="e.g. English, Russian">
-    </nav>
-    <div class="gallery">
-        <div class="card" data-language="English">
-            <img src="https://i.imgur.com/7cGzTCa.jpeg" alt="Pokémon Card 1">
-            <div class="card-info">
-                <p>Set: Paradox Rift</p>
-                <p>Card Number: 126/182</p>
-                <p>Variant: Regular Rare</p>
-                <p>Language: English</p>
-            </div>
-        </div>
-        <div class="card" data-language="English">
-            <img src="https://i.imgur.com/2bwYZNH.jpg" alt="Pokémon Card 2">
-            <div class="card-info">
-                <p>Set: Paradox Rift</p>
-                <p>Card Number: 126/182</p>
-                <p>Variant: Reverse Holo</p>
-                <p>Language: English</p>
-            </div>
-        </div>
-        <div class="card" data-language="Japanese">
-            <img src="https://i.imgur.com/3LMWm7P.jpg" alt="Pokémon Card 3">
-            <div class="card-info">
-                <p>Set: Shiny Star V</p>
-                <p>Card Number: 308/330</p>
-                <p>Variant: Shiny</p>
-                <p>Language: Japanese</p>
-            </div>
-        </div>
-        <!-- Add more cards as needed -->
+    <div class="sort-buttons">
+        <button onclick="filterCards('all')">All Sets</button>
+        <button onclick="filterCards('Paradox Rift')">Paradox Rift</button>
+        <button onclick="filterCards('Silver Tempest')">Silver Tempest</button>
+        <button onclick="filterCards('Miscellaneous Promotional cards')">Miscellaneous Promotional cards</button>
+        <button onclick="filterCards('XY-P Promotional cards')">XY-P Promotional cards</button>
+        <!-- Add more buttons as needed -->
     </div>
+
+
+    
+    <div class="card-container">
+        <div class="card not-incollection" data-set="Stellar Miracle" data-date="2024-03-08" onclick="openVariants('modal13')">
+            <img src="https://i.imgur.com/KqWdaDc.jpeg" alt="Card 2">
+            <div class="card-details">
+                <h3>Jirachi</h3>
+                <p>ポケモンカードゲーム スカーレット&バイオレット バトルアカデミー</p>
+                <p>Japanese</p>
+                <p>Release Date: 2024-03-08</p>
+            </div>
+            <div class="variant-count">
+                <i class="stack-icon"></i>
+                <span>0/1</span>
+            </div>
+            </div>
+            <div class="card not-incollection" data-set="Stellar Miracle" data-date="2024-04-20" onclick="openVariants('modal13')">
+                <img src="https://i.imgur.com/KqWdaDc.jpeg" alt="Card 2">
+                <div class="card-details">
+                    <h3>Jirachi</h3>
+                    <p>배틀 아카데미</p>
+                    <p>Korean</p>
+                    <p>Release Date: 2024-04-20</p>
+                </div>
+                <div class="variant-count">
+                    <i class="stack-icon"></i>
+                    <span>0/1</span>
+                </div>
+                </div>
+
+
+        <div class="card in-collection" data-set="Paradox Rift"  data-date="2023-11-03" onclick="openVariants('modal1')">
+            <img src="https://static.tcgcollector.com/content/content/images/11/36/f9/1136f9468cddde9983d1a8f4eb65f0fa60cd6b2eac29130bd2015a5264b7e8af.jpg" alt="Card 1">
+            <div class="card-details">
+                <h3>Jirachi</h3>
+                <p>Paradox Rift</p>
+                <p>English</p>
+                <p>Release Date: 2023-11-03</p>
+            </div>
+            <div class="variant-count">
+                <i class="stack-icon"></i>
+                <span>2/3</span>
+            </div>
+        </div>
+        <div class="card not-incollection" data-set="Paradox Rift" data-date="2023-11-03" onclick="openVariants('modal3')">
+            <img src="https://static.tcgcollector.com/content/content/images/11/36/f9/1136f9468cddde9983d1a8f4eb65f0fa60cd6b2eac29130bd2015a5264b7e8af.jpg" alt="Card 1">
+            <div class="card-details">
+                <h3>Jirachi</h3>
+                <p>Faille Paradoxe</p>
+                <p>French</p>
+                <p>Release Date: 2023-11-03</p>
+            </div>
+            <div class="variant-count">
+                <i class="stack-icon"></i>
+                <span>0/3</span>
+            </div>
+        </div>
+        <div class="card not-incollection" data-set="Paradox Rift" data-date="2023-11-03" onclick="openVariants('modal4')">
+            <img src="https://static.tcgcollector.com/content/content/images/11/36/f9/1136f9468cddde9983d1a8f4eb65f0fa60cd6b2eac29130bd2015a5264b7e8af.jpg" alt="Card 1">
+            <div class="card-details">
+                <h3>Jirachi</h3>
+                <p>Paradoxrift</p>
+                <p>German</p>
+                <p>Release Date: 2023-11-03</p>
+            </div>
+            <div class="variant-count">
+                <i class="stack-icon"></i>
+                <span>0/3</span>
+            </div>
+        </div>
+        <div class="card not-incollection" data-set="Paradox Rift" data-date="2023-11-03" onclick="openVariants('modal5')">
+            <img src="https://static.tcgcollector.com/content/content/images/11/36/f9/1136f9468cddde9983d1a8f4eb65f0fa60cd6b2eac29130bd2015a5264b7e8af.jpg" alt="Card 1">
+            <div class="card-details">
+                <h3>Jirachi</h3>
+                <p>Paradosso Temporale</p>
+                <p>Italian</p>
+                <p>Release Date: 2023-11-03</p>
+            </div>
+            <div class="variant-count">
+                <i class="stack-icon"></i>
+                <span>0/3</span>
+            </div>
+        </div>
+        <div class="card not-incollection"  data-set="Paradox Rift" data-date="2023-11-03" onclick="openVariants('modal5')">
+            <img src="https://static.tcgcollector.com/content/content/images/11/36/f9/1136f9468cddde9983d1a8f4eb65f0fa60cd6b2eac29130bd2015a5264b7e8af.jpg" alt="Card 1">
+            <div class="card-details">
+                <h3>Jirachi</h3>
+                <p>Fenda Paradoxal</p>
+                <p>Brazilian Portuguese</p>
+                <p>Release Date: 2023-11-03</p>
+            </div>
+            <div class="variant-count">
+                <i class="stack-icon"></i>
+                <span>0/3</span>
+            </div>
+        </div>
+        <div class="card not-incollection" data-set="Paradox Rift" data-date="2023-11-03" onclick="openVariants('modal5')">
+            <img src="https://static.tcgcollector.com/content/content/images/11/36/f9/1136f9468cddde9983d1a8f4eb65f0fa60cd6b2eac29130bd2015a5264b7e8af.jpg" alt="Card 1">
+            <div class="card-details">
+                <h3>Jirachi</h3>
+                <p>Brecha Paradójica</p>
+                <p>Spanish</p>
+                <p>Release Date: 2023-11-03</p>
+            </div>
+            <div class="variant-count">
+                <i class="stack-icon"></i>
+                <span>0/3</span>
+            </div>
+        </div>
+        <div class="card not-incollection" data-set="Paradox Rift" data-date="2023-09-22" onclick="openVariants('modal5')">
+            <img src="https://static.tcgcollector.com/content/content/images/11/36/f9/1136f9468cddde9983d1a8f4eb65f0fa60cd6b2eac29130bd2015a5264b7e8af.jpg" alt="Card 1">
+            <div class="card-details">
+                <h3>Jirachi</h3>
+                <p>レイジングサーフ </p>
+                <p>Japanese</p>
+                <p>Release Date: 2023-09-22</p>
+            </div>
+            <div class="variant-count">
+                <i class="stack-icon"></i>
+                <span>0/1</span>
+            </div>
+        </div>
+        <div class="card not-incollection" data-set="Paradox Rift" data-date="2023-10-13" onclick="openVariants('modal5')">
+            <img src="https://static.tcgcollector.com/content/content/images/11/36/f9/1136f9468cddde9983d1a8f4eb65f0fa60cd6b2eac29130bd2015a5264b7e8af.jpg" alt="Card 1">
+            <div class="card-details">
+                <h3>Jirachi</h3>
+                <p>레이징서프 </p>
+                <p>Korean</p>
+                <p>Release Date: 2023-10-13</p>
+            </div>
+            <div class="variant-count">
+                <i class="stack-icon"></i>
+                <span>0/1</span>
+            </div>
+        </div>
+        <div class="card not-incollection" data-set="Paradox Rift" data-date="2023-09-29" onclick="openVariants('modal5')">
+            <img src="https://static.tcgcollector.com/content/content/images/11/36/f9/1136f9468cddde9983d1a8f4eb65f0fa60cd6b2eac29130bd2015a5264b7e8af.jpg" alt="Card 1">
+            <div class="card-details">
+                <h3>Jirachi</h3>
+                <p>激狂駭浪  </p>
+                <p>Traditional Chinese</p>
+                <p>Release Date: 2023-09-29</p>
+            </div>
+            <div class="variant-count">
+                <i class="stack-icon"></i>
+                <span>0/1</span>
+            </div>
+        </div>
+        <div class="card not-incollection" data-set="Paradox Rift" data-date="2023-12-15" onclick="openVariants('modal5')">
+            <img src="https://static.tcgcollector.com/content/content/images/11/36/f9/1136f9468cddde9983d1a8f4eb65f0fa60cd6b2eac29130bd2015a5264b7e8af.jpg" alt="Card 1">
+            <div class="card-details">
+                <h3>Jirachi</h3>
+                <p>Pertemuan Paradoks</p>
+                <p>Indonesian</p>
+                <p>Release Date: 2023-12-15</p>
+            </div>
+            <div class="variant-count">
+                <i class="stack-icon"></i>
+                <span>0/1</span>
+            </div>
+        </div>
+        <div class="card in-collection" data-set="Paradox Rift" data-date="2023-10-27" onclick="openVariants('modal2')">
+            <img src="https://down-th.img.susercontent.com/file/th-11134207-7r98z-lne0ggigem9cf7" alt="Card 2">
+            <div class="card-details">
+                <h3>Jirachi</h3>
+                <p>คลื่นพิโรธ</p>
+                <p>Thai</p>
+                <p>Release Date: 2023-10-27</p>
+            </div>
+            <div class="variant-count">
+                <i class="stack-icon"></i>
+                <span>1/2</span>
+            </div>
+        </div>
+
+        <div class="card in-collection" data-set="Miscellaneous Promotional cards" data-date="2017-10-20" onclick="openVariants('modal12')">
+            <img src="https://cdn6966.templcdn.com/wp-content/uploads/2021/05/EN_67aXY.jpg" alt="Card 2">
+            <div class="card-details">
+                <h3>Jirachi</h3>
+                <p>Miscellaneous Promotional cards</p>
+                <p>English</p>
+                <p>Release Date: 2017-10-20</p>
+            </div>
+            <div class="variant-count">
+                <i class="stack-icon"></i>
+                <span>1/1</span>
+            </div>
+        </div>
+        <div class="card in-collection" data-set="XY-P Promotional cards" data-date="2016-04-16" onclick="openVariants('modal13')">
+            <img src="https://archives.bulbagarden.net/media/upload/thumb/3/30/JirachiXYPromo67a.jpg/429px-JirachiXYPromo67a.jpg" alt="Card 2">
+            <div class="card-details">
+                <h3>Jirachi</h3>
+                <p>XY-P Promotional cards</p>
+                <p>Japanese</p>
+                <p>Release Date: 2016-04-16</p>
+            </div>
+            <div class="variant-count">
+                <i class="stack-icon"></i>
+                <span>1/1</span>
+            </div>
+        </div>
+        <div class="card in-collection" data-set="XY-P Promotional cards" data-date="2016-05-25" onclick="openVariants('modal13')">
+            <img src="https://i.imgur.com/j063gw1.jpeg" alt="Card 2">
+            <div class="card-details">
+                <h3>Jirachi</h3>
+                <p>XY-P Promotional cards</p>
+                <p>Korean</p>
+                <p>Release Date: 2016-05-25</p>
+            </div>
+            <div class="variant-count">
+                <i class="stack-icon"></i>
+                <span>1/1</span>
+            </div>
+        </div>
+
+
+
+    </div>
+    
+
+    <!-- Modal -->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal1')">&times;</span>
+            <div class="variant">
+                <img src="https://static.tcgcollector.com/content/content/images/11/36/f9/1136f9468cddde9983d1a8f4eb65f0fa60cd6b2eac29130bd2015a5264b7e8af.jpg" alt="Variant 1">
+                <p>Regular Rare</p>
+            </div>
+            <div class="variant">
+                <img src="https://i.ebayimg.com/images/g/GEgAAOSwatJlUPdj/s-l1200.webp" alt="Variant 2">
+                <p>Reverse Holo</p>
+            </div>
+            <div class="variant">
+                <div class="card not-incollection">
+                <img src="https://i.imgur.com/lnTMqBp.jpeg" alt="Variant 3">
+                </div>
+                <p>Play! Pokémon Prize Pack Series Five</p>
+            </div>
+        </div>
+    </div>
+    <div id="modal2" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal2')">&times;</span>
+            <div class="variant">
+                <div class="card not-incollection">
+                <img src="https://down-th.img.susercontent.com/file/th-11134207-7r98z-lne0ggigem9cf7" alt="Variant 1">
+                </div>
+                <p>Common</p>
+            </div>
+            <div class="variant">
+                <div class="card in-collection"> 
+                <img src="https://i.ebayimg.com/images/g/imcAAOSwZCJl1-Wn/s-l1200.jpg" alt="Variant 2">
+                </div>
+                <p>Promo</p>
+            </div>
+            <!-- More variants -->
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
