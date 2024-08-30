@@ -57,7 +57,7 @@ body {
 .variant-count .stack-icon {
     width: 16px;
     height: 16px;
-    background-image: url('stack-icon.png'); /* Replace with your stack icon image */
+    background-image: url('stack-icon.png'); /* Replace in future */
     background-size: cover;
     margin-right: 5px;
 }
@@ -109,13 +109,15 @@ body {
     margin: 5% auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 80%;
-    max-width: 1000px;
+    width: 90%;
+    max-width: 90%;
+    max-height: 90%;
     text-align: center;
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
     justify-content: center;
+    overflow-y: auto;
 }
 
 .close {
@@ -140,8 +142,8 @@ body {
 }
 
 .variant img {
-    width: 320px;
-    height: 447px;
+    width: 100%; /* Adjust image width to fill parent container */
+    height: auto;
     object-fit: cover;
     margin-bottom: 5px;
     border-radius: 4px;
