@@ -1,0 +1,185 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 320px;
+    padding: 10px;
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+}
+
+.card img {
+    width: 320px;
+    height: 447px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.card-details h3 {
+    margin: 10px 0 5px;
+    font-size: 16px;
+    color: #333;
+}
+
+.card-details p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #666;
+}
+
+.variant-count {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    display: flex;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 5px 10px;
+    border-radius: 12px;
+    color: #fff;
+    font-size: 14px;
+}
+
+.variant-count .stack-icon {
+    width: 16px;
+    height: 16px;
+    background-image: url('stack-icon.png'); /* Replace with your stack icon image */
+    background-size: cover;
+    margin-right: 5px;
+}
+
+.variants {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background-color: #ddd;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    color: #fff;
+}
+
+.variants.owned {
+    background-color: #4CAF50;
+}
+
+.variants.missing {
+    background-color: #F44336;
+}
+
+.stack {
+    position: relative;
+    top: -1px;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding-top: 60px;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 1000px;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.variant {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 320px;
+}
+
+.variant img {
+    width: 320px;
+    height: 447px;
+    object-fit: cover;
+    margin-bottom: 5px;
+    border-radius: 4px;
+}
+
+.variant p {
+    font-size: 14px;
+    color: #333;
+    margin: 0;
+}
+
+/* In-Collection and Not-In-Collection Styling */
+.not-incollection img {
+    filter: grayscale(100%);
+    opacity: 0.6;
+}
+
+.in-collection img {
+    filter: none;
+    opacity: 1;
+}
+
+/* Styling for the sort buttons */
+.sort-buttons {
+    margin-bottom: 20px;
+}
+
+.sort-buttons button {
+    padding: 10px 20px;
+    margin-right: 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.sort-buttons button:hover {
+    background-color: #0056b3;
+}
