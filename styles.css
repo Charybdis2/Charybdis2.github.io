@@ -142,8 +142,8 @@ body {
 }
 
 .variant img {
-    width: 100%; /* Adjust image width to fill parent container */
-    height: auto;
+    width: 320px;
+    height: 447px; /* Set height to match the original card size */
     object-fit: cover;
     margin-bottom: 5px;
     border-radius: 4px;
